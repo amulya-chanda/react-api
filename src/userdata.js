@@ -21,9 +21,7 @@ export function Datafetch(props){
     }, []);
     const handlechange=(event)=>{
       setsearch(event.target.value)
-
     }
-    
     function handledelete(item){
      const newdata=details.filter((id1)=> id1.id!==item.id);
      console.log(newdata)
@@ -39,23 +37,20 @@ export function Datafetch(props){
       else{
         const newdata1=starred.filter((id2)=>id2.id!==item.id);
         setstarred(newdata1);
-      }
-      
+      }  
     }
-    const starclicked=()=>{
+    const starclick=()=>{
       setflag(false);
       setflag1(true);
     }
-    const trashclicked=()=>{
+    const trashclick=()=>{
       setflag(true);
       setflag1(false);
     }
-    const homeclicked=()=>{
+    const homeclick=()=>{
       setflag(false);
       setflag1(false);
     }
-    
-    
       const searchdata = details.filter(
       (details) =>(
         ((gender === 'All') || (details.gender === gender) ) &&
@@ -63,13 +58,12 @@ export function Datafetch(props){
         details.last_name.toLowerCase().includes(search.toLowerCase()) ||
         details.email.toLowerCase().includes(search.toLowerCase()))
     ));
-        
-  return (
+    return (
       <div>
         <div className='header'>
-          <button id="button" onClick={homeclicked}>home</button>
-          <button id="button" onClick={starclicked}>starred</button>
-          <button id="button" onClick={trashclicked}>trash</button>
+          <button id="button" onClick={homeclick}>home</button>
+          <button id="button" onClick={starclick}>starred</button>
+          <button id="button" onClick={trashclick}>trash</button>
         </div>
         <div className='search'>
         <div className='gender'>
@@ -144,10 +138,7 @@ export function Datafetch(props){
           </tr>
         ))}
         </table>:<div></div>}
-       
-        
-       
-   </div>
+      </div>
     );
     
      
